@@ -1,0 +1,68 @@
+
+#wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 7rem auto 3rem;
+    grid-template-areas: 
+    "header header"
+    "spelare1 spelare2"
+    "footer footer";
+    height: 100%;
+}
+
+header {
+    grid-area: header;
+    background-color: #61049f;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+#spelare1 {
+    grid-area: spelare1;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#knapp1 {
+    background-color: #f9f9f9;
+    padding: 0.5rem;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+#spelare2 {
+    grid-area: spelare2;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#knapp2 {
+    background-color: #f9f9f9;
+    padding: 0.5rem;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 0.5rem;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #61049f;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+footer p {
+    font-size: 0.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

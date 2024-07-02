@@ -8,6 +8,16 @@ const kort1 = document.getElementById('kort1');
 const kort2 = document.getElementById('kort2');
 
 let i = 0;
+let im = 0;
+
+function runder() {
+    setTimeout(() => {
+        let prompt = window.prompt("Välkommen! Hur många runder vill ni köra?");
+        im = Number(prompt)*2;
+        console.log(im);
+    }, 500);
+}
+
 let spelare1poäng = 0;
 let spelare2poäng = 0;
 
@@ -24,9 +34,10 @@ function draw() {
                     poäng1.textContent = räknare1(data.cards[0].value);
                     kort1.src = data.cards[0].image
                     console.dir(data);
-                    domare(spelare1poäng);
                     knapp1.textContent = "Dra kort";
-
+                    setTimeout(() => {
+                        domare(spelare2poäng); // Call domare after a delay
+                    }, 300);
                 });
         }
     });
@@ -41,12 +52,12 @@ function draw() {
                 .then(data => {
                     poäng2.textContent = räknare2(data.cards[0].value);
                     kort2.src = data.cards[0].image;
-                })
-                .then(() => {
                     console.dir(data);
                     knapp2.textContent = "Dra kort";
-                    domare(spelare2poäng);
-                });
+                    setTimeout(() => {
+                        domare(spelare2poäng); // Call domare after a delay
+                    }, 300);
+                })
         }
     });
 }
@@ -93,15 +104,15 @@ function räknare2(value) {
 function domare(value) {
     i++;
 
-    if (i === 6 && spelare1poäng > spelare2poäng) {
+    if (i === im && spelare1poäng > spelare2poäng) {
         window.alert("Spelare 1 vann!");
         window.location.reload();
     }
-    else if (i === 6 && spelare1poäng < spelare2poäng) {
+    else if (i === im && spelare1poäng < spelare2poäng) {
         window.alert("Spelare 2 vann!");
         window.location.reload();
     }
-    else if (i === 6) {
+    else if (i === im) {
         window.alert("Oavgjort!");
         window.location.reload();
     }
@@ -110,4 +121,5 @@ function domare(value) {
     }
 }
 
+runder();
 draw();

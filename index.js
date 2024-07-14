@@ -15,7 +15,7 @@ function runder() {
         let prompt = window.prompt("Välkommen! Hur många runder vill ni köra?");
         im = Number(prompt)*2;
         console.log(im);
-    }, 500);
+    }, 700);
 }
 
 let spelare1poäng = 0;
@@ -103,7 +103,6 @@ function räknare2(value) {
 
 function domare(value) {
     i++;
-
     if (i === im && spelare1poäng > spelare2poäng) {
         window.alert("Spelare 1 vann!");
         window.location.reload();
